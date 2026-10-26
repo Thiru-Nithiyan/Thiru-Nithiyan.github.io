@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | DebutMe</title>
+  <meta name="description" content="Get in touch with the DebutMe team.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@300..500&family=Stack+Sans+Text:wght@400..500&display=swap" rel="stylesheet">
+  <style>
+    /* Design tokens mirror the debutme.com marketing site */
+    :root {
+      color-scheme: light;
+      --ground: #f5f5f7;
+      --ink: #12121c;
+      --muted: #545468;
+      --tone: #ececf1;
+      --accent: hsl(245 65% 57%);
+      --accent-deep: hsl(245 55% 42%);
+      --accent-soft: hsl(245 80% 96%);
+      --face-display: "Stack Sans Headline", ui-sans-serif, system-ui, sans-serif;
+      --face-text: "Stack Sans Text", ui-sans-serif, system-ui, sans-serif;
+      --radius: 1.75rem;
+      --glass-fill: rgba(255, 255, 255, 0.74);
+      --glass-rim: inset 0 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 rgba(255, 255, 255, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+      --float: 0 1px 2px rgba(18, 18, 28, 0.04), 0 18px 40px -18px rgba(18, 18, 28, 0.22);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--ground);
+      background-image:
+        radial-gradient(ellipse 90% 60% at 50% -10%, hsl(245 65% 57% / 0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 50% at 20% 15%, hsl(270 70% 55% / 0.10) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 80% 30%, hsl(200 90% 72% / 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 30% 95%, hsl(285 80% 75% / 0.12) 0%, transparent 60%);
+      background-attachment: fixed;
+      color: var(--ink);
+      font-family: var(--face-text);
+      font-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      line-height: 1.55;
+      padding: 0 clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding-block: clamp(2rem, 1rem + 4vw, 4rem) 3rem;
+    }
+
+    .logo { display: inline-block; }
+    .logo img { display: block; height: 40px; width: auto; }
+
+    .hero { margin: clamp(3rem, 2rem + 5vw, 6rem) 0 clamp(2.5rem, 2rem + 3vw, 4rem); }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 1.25rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: var(--face-display);
+      font-weight: 400;
+      font-size: clamp(2.6rem, 1.5rem + 5vw, 4.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin: 0 0 1.25rem;
+    }
+
+    h1 .grad {
+      background: linear-gradient(100deg, hsl(245 65% 57%), hsl(270 70% 58%));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+      line-height: 1.45;
+      margin: 0;
+      max-width: 34rem;
+    }
+
+    h2 {
+      font-family: var(--face-display);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      letter-spacing: -0.02em;
+      margin: clamp(3rem, 2rem + 4vw, 5rem) 0 1.25rem;
+    }
+
+    .glass {
+      background: var(--glass-fill);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      backdrop-filter: blur(22px) saturate(180%);
+      box-shadow: var(--glass-rim), var(--float);
+      border-radius: var(--radius);
+    }
+
+    .company {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+    }
+
+    .company p { margin: 0; }
+    .company .label { color: var(--muted); font-size: 0.9375rem; }
+
+    .email {
+      font-family: var(--face-display);
+      font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem);
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      text-decoration: none;
+      word-break: break-all;
+      transition: color 0.3s var(--ease);
+    }
+    .email:hover { color: var(--accent); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6em;
+      min-height: 3.25rem;
+      padding: 0 1.6rem;
+      border-radius: 999px;
+      font-family: var(--face-text);
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 55%), var(--accent);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.16), inset 0 -2px 6px rgba(20, 10, 80, 0.18), 0 10px 26px -10px rgba(53, 40, 189, 0.6);
+      transition: transform 0.45s var(--spring), box-shadow 0.3s var(--ease);
+    }
+    .btn:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.6), inset 0 -2px 6px rgba(20, 10, 80, 0.18), 0 16px 34px -12px rgba(53, 40, 189, 0.7);
+    }
+    .btn:active { transform: scale(0.96); transition-duration: 0.12s; }
+
+    .btn--quiet {
+      color: var(--ink);
+      background: var(--glass-fill);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      backdrop-filter: blur(22px) saturate(180%);
+      box-shadow: var(--glass-rim), var(--float);
+    }
+    .btn--quiet:hover { box-shadow: var(--glass-rim), 0 1px 2px rgba(18, 18, 28, 0.04), 0 22px 44px -18px rgba(18, 18, 28, 0.28); }
+
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .person {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1.75rem;
+      transition: transform 0.45s var(--spring);
+    }
+    .person:hover { transform: translateY(-3px); }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--face-display);
+      font-weight: 500;
+      color: #fff;
+      background:
+        radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 34%),
+        radial-gradient(circle at 50% 50%, #6a5ee8, #4e42d7 60%, #3d29a3);
+      box-shadow: 0 8px 20px -8px rgba(53, 40, 189, 0.55);
+    }
+
+    .person h3 {
+      margin: 0;
+      font-family: var(--face-display);
+      font-weight: 500;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+    }
+    .person .role { margin: 0.2rem 0 0; color: var(--muted); font-size: 0.9375rem; }
+    .person .btn { align-self: flex-start; margin-top: auto; min-height: 2.75rem; padding: 0 1.2rem; font-size: 0.9375rem; }
+
+    footer {
+      margin-top: clamp(4rem, 3rem + 4vw, 7rem);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--tone);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+    footer p { margin: 0; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="logo" href="https://www.debutme.com" aria-label="DebutMe home">
+      <img src="debutme-logo.png" alt="DebutMe" width="339" height="110">
+    </a>
+
+    <header class="hero">
+      <p class="eyebrow">Contact</p>
+      <h1>Let&rsquo;s <span class="grad">talk.</span></h1>
+      <p class="lead">Questions, partnerships or just want to say hello? Email us or reach the team directly on LinkedIn.</p>
+    </header>
+
+    <section aria-labelledby="company-heading">
+      <div class="glass company">
+        <div>
+          <p class="label" id="company-heading">Email us at</p>
+          <a class="email" href="mailto:contact@debutme.com">contact@debutme.com</a>
+        </div>
+        <div class="actions">
+          <a class="btn" href="mailto:contact@debutme.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Send email
+          </a>
+          <a class="btn btn--quiet" href="https://www.linkedin.com/company/debutme/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            Follow on LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="team-heading">
+      <h2 id="team-heading">Meet the team</h2>
+      <div class="team">
+        <article class="glass person">
+          <div class="avatar" aria-hidden="true">BC</div>
+          <div>
+            <h3>Brandon Chiu</h3>
+            <p class="role">Co-founder</p>
+          </div>
+          <a class="btn btn--quiet" href="https://www.linkedin.com/in/brandonchiu12" target="_blank" rel="noopener noreferrer" aria-label="Brandon Chiu on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </article>
+
+        <article class="glass person">
+          <div class="avatar" aria-hidden="true">JT</div>
+          <div>
+            <h3>Jayakumar Thirunithiyan</h3>
+            <p class="role">Co-founder</p>
+          </div>
+          <a class="btn btn--quiet" href="https://www.linkedin.com/in/jayakumar-thirunithiyan-6778461b4" target="_blank" rel="noopener noreferrer" aria-label="Jayakumar Thirunithiyan on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </article>
+
+        <article class="glass person">
+          <div class="avatar" aria-hidden="true">YO</div>
+          <div>
+            <h3>Yao Sheng Ong</h3>
+            <p class="role">Founding Engineer</p>
+          </div>
+          <a class="btn btn--quiet" href="https://www.linkedin.com/in/yao-sheng-ong" target="_blank" rel="noopener noreferrer" aria-label="Yao Sheng Ong on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year">2026</span> DebutMe. Reinventing Careers.</p>
+      <p><a href="https://www.debutme.com">debutme.com</a></p>
+    </footer>
+  </main>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
